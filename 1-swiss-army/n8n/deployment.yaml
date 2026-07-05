@@ -25,6 +25,8 @@ spec:
               value: "admin"
             - name: N8N_BASIC_AUTH_PASSWORD
               value: "admin"
+            - name: N8N_SECURE_COOKIE
+              value: "false"
           resources:
             requests:
               memory: "1Gi"

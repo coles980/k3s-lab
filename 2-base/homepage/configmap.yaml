@@ -30,6 +30,21 @@ data:
         - n8n:
             href: http://192.168.1.50:30083
             description: Automatización
+        - cyberchef:
+            href: http://192.168.1.50:30086
+            description: Herramienta de análisis de datos
+        - excalidraw:
+            href: http://192.168.1.50:30085
+            description: Herramienta de dibujo
+        - drawio:
+            href: http://192.168.1.50:30084
+            description: Herramienta de diagramas
+        - it-tools:
+            href: http://192.168.1.50:30087
+            description: Herramienta de IT
+        - memos:
+            href: http://192.168.1.50:30088
+            description: Herramienta de notas
 
   widgets.yaml: |
     - resources:
