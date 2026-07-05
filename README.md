@@ -1,6 +1,6 @@
-# 🛠️ K3s Swiss Army Lab – Setup Completo
+# K3s Swiss Army Lab – Setup Completo
 
-## 🎯 Objetivo
+## Objetivo
 
 Montar un laboratorio local en Ubuntu con:
 
@@ -11,7 +11,7 @@ Montar un laboratorio local en Ubuntu con:
 
 ---
 
-# 1️⃣ Configurar IP fija en Ubuntu (WiFi)
+# 1. Configurar IP fija en Ubuntu (WiFi)
 
 ## Ver conexión activa
 
@@ -56,16 +56,16 @@ Debe devolver:
 
 ---
 
-## ⚠️ Importante
+## Importante
 
 En el router:
 
 * DHCP: `192.168.1.128 – 192.168.1.254`
-* Tu IP: `192.168.1.50` ✔️ (fuera del rango)
+* Tu IP: `192.168.1.50` (fuera del rango)
 
 ---
 
-# 2️⃣ Instalar K3s
+# 2. Instalar K3s
 
 ## Instalación limpia
 
@@ -97,7 +97,7 @@ kubectl get pods -A
 
 ---
 
-# 3️⃣ Arquitectura del laboratorio
+# 3. Arquitectura del laboratorio
 
 ## Acceso
 
@@ -114,32 +114,47 @@ http://192.168.1.50/
 
 ---
 
-# 4️⃣ Servicios incluidos
+# 4. Servicios incluidos
 
-## 🌐 Dashboard
+> Basado en el dashboard de Homepage (`2-base/homepage/configmap.yaml`).
+
+## Dashboard
 
 * Homepage → `/`
 
-## 🧪 Test
+## Test
 
 * Whoami → `/whoami`
 
-## 🔐 Seguridad
+## Seguridad
 
 * Vaultwarden → `:30080`
 
-## 📄 PDFs
+## PDFs
 
 * Stirling PDF → `:30081`
 
-## 📊 Observabilidad (parcial)
+## Automatización
 
-* Uptime Kuma
-* Grafana (opcional)
+* n8n → `:30083`
+
+## Diagramas y dibujo
+
+* draw.io → `:30084`
+* Excalidraw → `:30085`
+
+## Utilidades
+
+* CyberChef → `:30086`
+* IT-Tools → `:30087`
+
+## Notas
+
+* Memos → `:30088`
 
 ---
 
-# 5️⃣ Despliegue
+# 5. Despliegue
 
 ## Aplicar todo
 
@@ -157,19 +172,25 @@ kubectl get ingress -A
 
 ---
 
-# 6️⃣ URLs finales
+# 6. URLs finales
 
 ```text
-http://192.168.1.50/
-http://192.168.1.50/whoami
+http://192.168.1.50/            → Homepage
+http://192.168.1.50/whoami      → Whoami
 
-http://192.168.1.50:30080   → Vaultwarden
-http://192.168.1.50:30081   → PDF Tools
+http://192.168.1.50:30080       → Vaultwarden
+http://192.168.1.50:30081       → Stirling PDF
+http://192.168.1.50:30083       → n8n
+http://192.168.1.50:30084       → draw.io
+http://192.168.1.50:30085       → Excalidraw
+http://192.168.1.50:30086       → CyberChef
+http://192.168.1.50:30087       → IT-Tools
+http://192.168.1.50:30088       → Memos
 ```
 
 ---
 
-# 7️⃣ Troubleshooting
+# 7. Troubleshooting
 
 ## Ver logs
 
@@ -191,20 +212,19 @@ kubectl rollout restart deployment/<name> -n <namespace>
 
 ---
 
-# 8️⃣ Buenas prácticas
+# 8. Buenas prácticas
 
-* ❌ No usar subpaths para apps complejas (grafana, gitea)
-* ✔️ Usar NodePort para apps “reales”
-* ✔️ Mantener IP fija
-* ✔️ Testear conectividad antes de desplegar
+* No usar subpaths para apps complejas (grafana, gitea)
+* Usar NodePort para apps “reales”
+* Mantener IP fija
+* Testear conectividad antes de desplegar
 
 ---
 
-# 9️⃣ Siguientes pasos
+# 9. Siguientes pasos
 
 * Añadir:
 
-  * n8n (automatización)
   * linkding (bookmarks)
   * adguard (DNS)
 * Implementar autenticación central (Authelia)
@@ -212,7 +232,7 @@ kubectl rollout restart deployment/<name> -n <namespace>
 
 ---
 
-# 🚀 Resultado
+# Resultado
 
 Tienes un laboratorio:
 
@@ -223,13 +243,13 @@ Tienes un laboratorio:
 
 ---
 
-## 🧠 Nota final
+## Nota final
 
 Este setup está optimizado para:
 
-✔ aprender Kubernetes
-✔ montar servicios reales
-✔ evitar problemas típicos de red doméstica
+* aprender Kubernetes
+* montar servicios reales
+* evitar problemas típicos de red doméstica
 
 ---
 
