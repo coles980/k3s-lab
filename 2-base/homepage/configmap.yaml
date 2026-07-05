@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: apps
+data:
+  bookmarks.yaml: |
+    - Infra:
+        - Kubernetes:
+            - href: https://kubernetes.io
+        - Traefik:
+            - href: https://doc.traefik.io/traefik/
+        - K3s:
+            - href: https://docs.k3s.io/
+
+  services.yaml: |
+    - Lab:
+        - Homepage:
+            href: http://192.168.1.50/
+            description: Dashboard principal
+        - Whoami:
+            href: http://192.168.1.50/whoami
+            description: Test de ingress
+        - Vaultwarden:
+            href: http://192.168.1.50:30080
+            description: Gestor de contraseñas
+        - Stirling PDF:
+            href: http://192.168.1.50:30081
+            description: Herramientas PDF
+        - n8n:
+            href: http://192.168.1.50:30083
+            description: Automatización
+
+  widgets.yaml: |
+    - resources:
+        cpu: true
+        memory: true
+        disk: /
+
+  docker.yaml: |
+    []
+
+  kubernetes.yaml: |
+    mode: disabled
+
+  settings.yaml: |
+    title: K3s Swiss Army Lab
+    headerStyle: clean
+    layout:
+      Lab:
+        style: row
+        columns: 3
